@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="fib-form">
+      <input id="fib-number" type="number" />
+      <input type="submit" value="submit" />
+    </form>
+    <div>
+      <p id="result"></p>
+    </div>
+    <script>
+      const formSubmit = document.getElementById('fib-form');
+      const value = document.getElementById('fib-number');
+      const result = document.querySelector('result');
+      let array = [];
+      formSubmit.addEventListener('submit', (e) => {
+        if (value.value == '') {
+          alert('Insert number');
+        } else {
+          e.preventDefault();
+          const intValue = parseInt(value.value);
+          let n = intValue;
+          array[0] = 0;
+          array[1] = 1;
+          let sum = 0;
+          for (let i = 2; i <= n; i++) {
+            array[i] = array[i - 1] + array[i - 2];
+          }
+
+          document.getElementById(
+            'result'
+          ).innerHTML = `Result of Fib is : ${array[n]}`;
+        }
+      });
+    </script>
+  </body>
+</html>
