@@ -21,11 +21,12 @@
       const result = document.querySelector('result');
       let array = [];
       formSubmit.addEventListener('submit', (e) => {
-        if (value.value == '') {
-          alert('Insert number');
+        const intValue = parseInt(value.value);
+        if (value.value == '' || intValue < 0) {
+          alert('Insert number greater than or equal to zeor');
         } else {
           e.preventDefault();
-          const intValue = parseInt(value.value);
+          //const intValue = parseInt(value.value);
           let n = intValue;
           array[0] = 0;
           array[1] = 1;
